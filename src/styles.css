@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+    /* === Brand colors (Google style) === */
+    --color-primary: #1a73e8; /* Google Blue */
+    --color-primary-content: #ffffff;
+
+    --color-secondary: #ea4335; /* Google Red */
+    --color-secondary-content: #ffffff;
+
+    --color-accent: #34a853; /* Google Green */
+    --color-accent-content: #ffffff;
+
+    /* === Neutrals and base === */
+    --color-neutral: #5f6368; /* Google neutral gray */
+    --color-neutral-content: #ffffff;
+
+    --color-base-100: #ffffff; /* White background */
+    --color-base-200: #f1f3f4; /* Light gray surface */
+    --color-base-300: #e8eaed; /* Slightly darker gray */
+    --color-base-content: #202124; /* Text color on base */
+
+    /* === System colors (info, success, warning, error) === */
+    --color-info: #4285f4; /* Google info blue */
+    --color-info-content: #ffffff;
+
+    --color-success: #34a853; /* Google green */
+    --color-success-content: #ffffff;
+
+    --color-warning: #fbbc04; /* Google yellow/orange */
+    --color-warning-content: #202124;
+
+    --color-error: #ea4335; /* Google red */
+    --color-error-content: #ffffff;
+}
