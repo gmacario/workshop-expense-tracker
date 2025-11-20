@@ -8,12 +8,4 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
   templateUrl: './expense-list.html',
   styleUrl: './expense-list.css',
 })
-export class ExpenseList {
-  expenses: InputSignal<Expense[]> = input.required<Expense[]>()
-  deleteExpense: OutputEmitterRef<string> = output()
-
-  onDelete(expenseId: string): void {
-    this.deleteExpense.emit(expenseId);
-  }
-
-}
+export class ExpenseList {}

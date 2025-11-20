@@ -8,6 +8,4 @@ import { Component, input, InputSignal } from '@angular/core';
   styleUrl: './expense-summary.css',
 })
 export class ExpenseSummary {
-  amount: InputSignal<number> = input.required<number>()
-
 }

@@ -9,18 +9,6 @@
     </tr>
   </thead>
   <tbody>
-    @for (expense of expenses(); track expense.id) {
-    <tr>
-      <td>{{expense.title}}</td>
-      <td>{{expense.amount | currency: 'EUR'}}</td>
-      <td>{{expense.date | date: 'dd/MM/yyyy'}}</td>
-      <td>{{expense.category}}</td>
-      <td><button class="btn btn-secondary btn-sm" (click)="onDelete(expense.id)">Delete</button></td>
-    </tr>
-    } @empty {
-      <tr>
-        <td colspan="4">no expenses</td>
-      </tr>
-    }
+    <!-- Add the expenses list here! -->
   </tbody>
 </table>

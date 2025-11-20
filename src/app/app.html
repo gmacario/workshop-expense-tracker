@@ -3,14 +3,14 @@
   <div class="container flex flex-col gap-4">
     <section class="flex items-stretch gap-4 pt-4">
       <div class="w-[80%]">
-        <app-expense-form (addExpense)="onAddExpense($event)"></app-expense-form>
+        <!-- Add the ExpenseForm component -->
       </div>
       <div class="w-[20%]">
-        <app-expense-summary [amount]="totalAmount()"></app-expense-summary>
+        <!-- Add the ExpenseSummary component -->
       </div>
     </section>
     <section>
-      <app-expense-list [expenses]="expenses()" (deleteExpense)="onDeleteExpense($event)"></app-expense-list>
+      <!-- Add the ExpenseList component -->
     </section>
   </div>
 </main>
