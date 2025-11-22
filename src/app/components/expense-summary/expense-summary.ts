@@ -1,9 +1,7 @@
-import { CurrencyPipe } from '@angular/common';
-import { Component, input, InputSignal } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-expense-summary',
-  imports: [CurrencyPipe],
   templateUrl: './expense-summary.html',
   styleUrl: './expense-summary.css',
 })
