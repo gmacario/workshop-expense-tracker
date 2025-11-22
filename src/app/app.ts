@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Header } from "./components/header/header";
 import { Expense } from './types/expense';
 
@@ -9,8 +9,17 @@ import { Expense } from './types/expense';
   styleUrl: './app.css'
 })
 export class App {
+  // expense = signal<Expense>({
+  //   amount: 0,
+  //   category: 'Category',
+  //   date: 'Date',
+  //   id: 'id',
+  //   title: 'title'
+  // })
+
+
   constructor() {
-    // Why we may need this? 
+    // Why we may need this?
   }
 
   protected onAddExpense(expense: Expense): void {
