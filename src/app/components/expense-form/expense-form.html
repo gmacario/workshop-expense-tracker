@@ -1,0 +1,72 @@
+<div class="fieldset bg-base-100 border-base-300 rounded-box border p-4">
+  <legend class="fieldset-legend text-lg">Add your expense</legend>
+  <form [formGroup]="expenseForm" class="flex flex-col" (ngSubmit)="onAddExpense(expenseForm.getRawValue())">
+    <div class="flex flex-wrap gap-4 items-center justify-between">
+      <fieldset class="fieldset flex-1 w-[50%] 2xl:w-[50%] 2xl:min-w-60 min-h-32">
+        <legend class="fieldset-legend">Title</legend>
+        @let titleValid = expenseForm.controls.title.touched && expenseForm.controls.title.invalid;
+        <input
+          formControlName="title"
+          type="text"
+          class="input w-full"
+          [class.input-error]="titleValid"
+          placeholder="Type here the title"
+          name="title"
+        />
+        @if(titleValid) {
+        <p class="label">Title is Mandatory</p>
+        }
+      </fieldset>
+      <fieldset class="fieldset flex-1 w-[50%] 2xl:min-w-60 min-h-32">
+        <legend class="fieldset-legend">Amount</legend>
+        @let amountValid = expenseForm.controls.amount.touched && expenseForm.controls.amount.invalid;
+        <input
+          formControlName="amount"
+          type="number"
+          class="input w-full"
+          [class.input-error]="amountValid"
+          placeholder="Type here the amount"
+          name="amount"
+        />
+        @if(amountValid) {
+        <p class="label">Amount is Mandatory</p>
+        }
+      </fieldset>
+      <fieldset class="fieldset flex-1 w-[50%] 2xl:min-w-60 min-h-32">
+        <legend class="fieldset-legend">Date</legend>
+        @let dateValid = expenseForm.controls.date.touched && expenseForm.controls.date.invalid;
+        <input
+          formControlName="date"
+          type="date"
+          class="input w-full"
+          [class.input-error]="dateValid"
+          name="date"
+        />
+        @if(dateValid) {
+        <p class="label">Date is Mandatory</p>
+        }
+      </fieldset>
+      <fieldset class="fieldset flex-1 w-[50%] 2xl:min-w-60 min-h-32">
+        <legend class="fieldset-legend">Categories</legend>
+        @let categoryValid = expenseForm.controls.category.invalid && expenseForm.controls.category.touched;
+        <select
+          formControlName="category"
+          class="select w-full"
+          [class.select-error]="categoryValid"
+          name="category"
+        >
+          <option disabled [value]="undefined" selected>Pick a category</option>
+          @for (category of categories(); track category.value) {
+          <option [value]="category.value">{{ category.name }}</option>
+          }
+        </select>
+        @if(categoryValid) {
+        <p class="label">Date is Mandatory</p>
+        }
+      </fieldset>
+    </div>
+    <div class="flex justify-center">
+      <button class="btn btn-primary w-80" [disabled]="expenseForm.invalid">Save</button>
+    </div>
+  </form>
+</div>
