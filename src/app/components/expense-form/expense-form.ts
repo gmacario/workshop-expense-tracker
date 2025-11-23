@@ -18,13 +18,16 @@ interface ExpenseFormModel {
   styleUrl: './expense-form.css',
 })
 export class ExpenseForm {
+
+  addExpense: OutputEmitterRef<Expense> = output();
+
   expenseForm: FormGroup<ExpenseFormModel> = new FormGroup<ExpenseFormModel>({
     title: new FormControl<string>('', { nonNullable: true, validators: [Validators.required] }),
     amount: new FormControl<number>(0, { nonNullable: true, validators: [Validators.required, Validators.min(1)] }),
     date: new FormControl<string>('', { nonNullable: true, validators: [Validators.required] }),
     category: new FormControl<string>('', { nonNullable: true, validators: [Validators.required] }),
   });
-  
+
   categories: Signal<Category[]> = signal(expenseCategories)
 
 

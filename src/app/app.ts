@@ -1,34 +1,44 @@
-import { Component, signal } from '@angular/core';
-import { Header } from "./components/header/header";
+import { Component, computed, effect, signal } from '@angular/core';
 import { Expense } from './types/expense';
+import { ExpenseForm } from "./components/expense-form/expense-form";
+import { ExpenseList } from "./components/expense-list/expense-list";
+import { Header } from "./components/header/header";
+import { expenseList } from "./mocks/expenses";
 
 @Component({
   selector: 'app-root',
-  imports: [Header],
+  imports: [ExpenseForm, /* ExpenseList, */ Header],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  expense = signal<Expense>({
-    amount: 0,
-    category: 'Category',
-    date: 'Date',
-    id: 'id',
-    title: 'title'
-  })
+  protected readonly expenses = signal<Expense[]>(expenseList);
 
+  protected readonly totalAmount = computed(() => {
+    return this.expenses().reduce((sum, expense) => sum + expense.amount, 0);
+  });
+
+  // expense = signal<Expense>({
+  //   amount: 0,
+  //   category: 'Category',
+  //   date: 'Date',
+  //   id: 'id',
+  //   title: 'title'
+  // })
 
   constructor() {
-    // Why we may need this?
+    effect(() => {
+      console.log('Expenses updated:', this.expenses());
+    });
   }
 
   protected onAddExpense(expense: Expense): void {
-    // Do something when the expense is add!
-    console.log(expense);
+    this.expenses.update((currentExpenses) => [expense, ...currentExpenses]);
   }
 
   protected onDeleteExpense(expenseId: string): void {
-    // Do something when the expense is removed!
-    console.log(expenseId);
+    this.expenses.update((currentExpenses) =>
+      currentExpenses.filter((expense) => expense.id !== expenseId)
+    );
   }
 }
