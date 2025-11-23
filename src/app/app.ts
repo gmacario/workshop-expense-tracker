@@ -9,13 +9,13 @@ import { Expense } from './types/expense';
   styleUrl: './app.css'
 })
 export class App {
-  // expense = signal<Expense>({
-  //   amount: 0,
-  //   category: 'Category',
-  //   date: 'Date',
-  //   id: 'id',
-  //   title: 'title'
-  // })
+  expense = signal<Expense>({
+    amount: 0,
+    category: 'Category',
+    date: 'Date',
+    id: 'id',
+    title: 'title'
+  })
 
 
   constructor() {
